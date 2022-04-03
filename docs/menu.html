@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The menu</title>
+
+    <meta property="og:title" content="david3VT Documentation - The menu" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://davidlao27.github.io/davidVT3D/documentation" />
+    <meta property="og:description" content="david3VT is a complex VTubing tool, as an alternative, more developed davidVT 2D" />
+    <meta name="theme-color" content="#ff0000">
+
+    <style>
+        body {
+            background-color: #fdfdfd;
+            margin: 0;
+            text-align: center;
+            font-size: medium;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .genbtn {
+            color: white;
+            background-color: #5500FF;
+            border-radius: 5px;
+            padding: 10px;
+            width: fit-content;
+            text-align: center;
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <h2>The menu</h2>
+    <hr><br>
+    The menu is a left-side panel that can be opened with a hidden button.<br>
+    That hidden button can be reached by <b>clicking the top left side of the window screen.</b><br><br> If you didnt understand that, it's the top left part of this white-background documentation page.
+    <br><br>
+    If you're still dumb and don't know where it is, just tap <b>the Z key on your keyboard</b> to open up instead.
+    <br><br><br>
+    Alright, now you should be in it, it looks like this:<br>
+    <i>(you can click it to open it on another tab)</i>
+    <br><br>
+    <img src="menu_image.png" onclick="window.open('menu_image.png')" width="100vw">
+    <br><br>But... what is this? What does everything mean?<br><br>
+    <b>Volume</b> means the required volume for your character to start using the talking animation. Below, you have your current microphone volume saying "right now:" and a number.<br>
+    <br> Try speaking into your microphone. It gets higher, right? Talk for a few seconds and calculate by mind what you think the value should be. (by the way, the default is 11 because it works fine with that on mine)<br><br>Okay okay okay, but now, what about the URLs? What are they?<br><br>
+    <b>The first URL</b> is the FBX file of your character with an idle animation, without talking.<br>
+    <br><b>The second URL</b> is the FBX file of your character with a talking animation.
+    <br><br>(in conclusion, you can read the Character section for more info)
+    <br><br>
+    <div class="genbtn" onclick="window.open('https://davidlao27.github.io/davidVT3D/docs/character','_self')">Using a character</div>
+    <br><br><br>Now, what are the so called "Other" settings? 0F0? BG Image?<br>
+    <b>The first textbox (defaulted to 0F0)</b> is the hex code (#RGB or #RRGGBB) of the background color that david3VT will use. Think of it as a chroma key color also known as a greenscreen.
+    <br><br><b>The second textbox (BG Image URL)</b> is where you put the URL of a background image if you want to directly replace like chroma key does without any imperfections. If you want a 3D model you should just be able to add it to your character separate from the animations making it look like maybe you are in a house.<br>
+    <br>If you simply just want something like a regular VTuber to put it over a screen capture in OBS, change the first textbox's hex color to the chroma key color you wish and filter it on OBS (for transparency).<br>
+    <br><b>The plain shading checkbox</b> marks if you want flat shading or not (see Lighting section).<br>
+    <br><b>The textbox next to it</b> is the color you want the "scene" light to be in something like 0xRRGGBB hexadecimal.
+    <br><br>
+    Finally, use "Close" to close the menu and/or "Apply" to apply the parameters.
+    <br><br><hr><br>
+    <div class="genbtn" onclick="window.open('https://davidlao27.github.io/davidVT3D/documentation','_self')">Go back</div>
+    <br><br><br>
+</body>
+</html>
