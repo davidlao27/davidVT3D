@@ -113,9 +113,7 @@
         <textarea class="btmnavtx" placeholder="Light color" id="chkhemicol"></textarea><br><br>
 
         <div class="genbtn" onclick="hideMenu();">Close</div>
-        <div class="genbtn" onclick="applySettingsMenuRep();">Apply neutrals repeated</div>
-        <br><br><br>
-        <div class="genbtn" onclick="applySettingsMenu();">Apply neutrals and customs</div>
+        <div class="genbtn" onclick="applySettingsMenu();">Apply</div>
         <div class="genbtn" onclick="openDocumentation();">Documentation</div>
     </div>
     <br>
@@ -151,11 +149,11 @@
 
         if (urlParams.get("bkimg") != null) { document.body.style.backgroundImage = "url('" + urlParams.get("bkimg") + "')"; }
 
-        if (urlParams.get("nvol") != null) document.getElementById("chkvoll").value = urlParams.get("nvol")
+        if (urlParams.get("nvol") != null) nvolchk.value = urlParams.get("nvol")
         else document.getElementById("chkvoln").value = "11";
 
         if (urlParams.get("hcol") != null) {
-            document.getElementById("chkhemicol").value = urlParams.get("hcol");
+            hemicolchk.value = urlParams.get("hcol");
             hcolconfig = urlParams.get("hcol");
         } else {
             hemicolchk.value = "0xffffff";
@@ -163,31 +161,31 @@
         }
 
         if (urlParams.get("open") != null) {
-            document.getElementById("chkopen").value = urlParams.get("open")
+            chkopen.value = urlParams.get("open")
             neutraltalkurl = urlParams.get("open")
         } else {
-            document.getElementById("chkopen").value = "models/neutral_talking.fbx"
+            chkopen.value = "models/neutral_talking.fbx"
             neutraltalkurl = "models/neutral_talking.fbx"
         }
 
         if (urlParams.get("close") != null) {
-            document.getElementById("chkclose").value = urlParams.get("close")
+            chkclose.value = urlParams.get("close")
             neutralurl = urlParams.get("close")
         } else {
-            document.getElementById("chkclose").value = "models/neutral.fbx"
+           chkclose.value = "models/neutral.fbx"
             neutralurl = "models/neutral.fbx"
         }
 
 
         if (urlParams.get("custom1") != null) {
-            document.getElementById("chkcus1").value = urlParams.get("custom1")
+            chkcus1.value = urlParams.get("custom1")
             happytalkurl = urlParams.get("custom1")
         } else {
             happytalkurl = "models/neutral_talking.fbx"
         }
 
         if (urlParams.get("custom2") != null) {
-            document.getElementById("chkcus2").value = urlParams.get("custom2")
+            chkcus2.value = urlParams.get("custom2")
             happyurl = urlParams.get("custom2")
         } else {
             happyurl = "models/neutral.fbx"
@@ -219,11 +217,10 @@
         }
 
         function applySettingsMenu() {
-            window.location.replace("https://davidlao27.github.io/davidVT3D?close=" + chkclose.value + "&open=" + chkopen.value + "&nvol=" + nvolchk.value + "&bkcol=" + bkcolchk.value + "&bkimg=" + bkimgchk.value + "&plainshade=" + pshadechk.checked + "&hcol=" + hemicolchk.value + "&custom1=" + chkcus1.value + "&custom2=" + chkcus2.value);
-        }
+            if (chkcus1.value == "" || chkcus2.value == "")
+                window.location.replace("https://davidlao27.github.io/davidVT3D?close=" + chkclose.value + "&open=" + chkopen.value + "&nvol=" + nvolchk.value + "&bkcol=" + bkcolchk.value + "&bkimg=" + bkimgchk.value + "&plainshade=" + pshadechk.checked + "&hcol=" + hemicolchk.value + "&custom1=" + chkopen.value + "&custom2=" + chkclose.value);
 
-        function applySettingsMenuRep() {
-            window.location.replace("https://davidlao27.github.io/davidVT3D?close=" + chkclose.value + "&open=" + chkopen.value + "&nvol=" + nvolchk.value + "&bkcol=" + bkcolchk.value + "&bkimg=" + bkimgchk.value + "&plainshade=" + pshadechk.checked + "&hcol=" + hemicolchk.value + "&custom1=" + chkopen.value + "&custom2=" + chkclose.value);
+            else window.location.replace("https://davidlao27.github.io/davidVT3D?close=" + chkclose.value + "&open=" + chkopen.value + "&nvol=" + nvolchk.value + "&bkcol=" + bkcolchk.value + "&bkimg=" + bkimgchk.value + "&plainshade=" + pshadechk.checked + "&hcol=" + hemicolchk.value + "&custom1=" + chkcus1.value + "&custom2=" + chkcus2.value);
         }
 
         function openDocumentation() {
@@ -274,7 +271,9 @@
 
         camera.up.set(0, 0, 1);
         const controls = new THREE.OrbitControls(camera, renderer.domElement)
-        controls.target.set(0, 0, 0);
+        setTimeout(() => {
+            controls.target.set(0, 0, 0);
+        }, 100);
         camera.position.set(7, 1.4, 2.5)
 
         var mixer = THREE.AnimationMixer
