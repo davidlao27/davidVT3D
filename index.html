@@ -237,11 +237,11 @@
 
         if (isPlainShadingOn == "true") {
                                           //sets both white for plain
-            const hemi = new THREE.HemisphereLight(Number(hcolconfig), Number(hcolconfig), 1.25);
+            const hemi = new THREE.HemisphereLight(Number(hcolconfig), Number(hcolconfig), 10);
             scene.add(hemi)
 
             //*extra*//
-            const dire = new THREE.DirectionalLight(0xffffbb, 0.05);
+            const dire = new THREE.DirectionalLight(0xffffff, 10);
             scene.add(dire)
         } else {
                                             //"light color" //"shadow color"
