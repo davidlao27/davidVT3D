@@ -1,4 +1,4 @@
-var nvol = 11; var showAxis = false;
+var nvol = 3; var showAxis = false;
 var renderingQuality = 1;
 var isPlainShadingOn = "";
 var neutralurl, neutraltalkurl, happyurl, happytalkurl = "";
