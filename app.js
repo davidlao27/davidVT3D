@@ -28,7 +28,7 @@ if (urlParams.get("bkcol") != null) { document.body.style.backgroundColor = "#" 
 if (urlParams.get("bkimg") != null) { document.body.style.backgroundImage = "url('" + urlParams.get("bkimg") + "')"; }
 
 if (urlParams.get("nvol") != null) nvolchk.value = urlParams.get("nvol")
-else document.getElementById("chkvoln").value = "11";
+else document.getElementById("chkvoln").value = nvol;
 
 if (urlParams.get("hcol") != null) {
     hemicolchk.value = urlParams.get("hcol");
