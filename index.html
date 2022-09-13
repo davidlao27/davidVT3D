@@ -21,7 +21,7 @@
     <script src="js/FBXLoader.js"></script>
     <script src="https://unpkg.com/fflate"></script>
 
-    <div class="btmnav" id="btmnav" style="visibility: hidden;">
+    <div class="btmnav" id="btmnav" style="visibility: hidden; overflow-y: auto;">
         <br>
         <b style="font-size: x-large">Settings</b><br>
         <small>see placeholders for info!</small>
@@ -47,11 +47,24 @@
 
         <div class="genbtn" onclick="hideMenu();">Close</div>
         <div class="genbtn" onclick="applySettingsMenu();">Apply</div>
-        <div class="genbtn" onclick="openDocumentation();">Documentation</div>
     </div>
     <br>
     <div class="hidbtn" onclick="openMenu();">Menu</div>
-    <div class="cmbar">A</div>
+
+    <div class="cmbar" id="menubar_background">
+        <img onclick="closeMenubar('menubar_background')" src="images/ui/default.png" height="24px">&nbsp&nbsp
+        <img onclick="setbkc('#0F0')" src="images/ui/green.png" height="24px">
+        <img onclick="setbkc('#00F')" src="images/ui/blue.png" height="24px">
+        <img onclick="setbkc('#F0F')" src="images/ui/fuchsia.png" height="24px">
+        <img onclick="setbkc('#FFF')" src="images/ui/white.png" height="24px">
+        <img onclick="setbkc('#000')" src="images/ui/black.png" height="24px">
+    </div>
+
+    <div class="cmbar" id="menubar_light">
+        <img onclick="closeMenubar('menubar_light')" src="images/ui/default.png" height="24px">&nbsp&nbsp
+        <img onclick="setlightmode('night')" src="images/ui/black.png" height="24px">
+        <img onclick="setlightmode('lit')" src="images/ui/white.png" height="24px">
+    </div>
 
     <script src="app.js"></script>
 </body>

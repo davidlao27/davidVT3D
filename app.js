@@ -4,6 +4,26 @@ var isPlainShadingOn = "";
 var neutralurl, neutraltalkurl, happyurl, happytalkurl = "";
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
+var hcolconfig;
+var hemi;
+var hemi2;
+
+function setbkc(col) {
+    document.body.style.backgroundColor = col;
+}
+
+function closeMenubar(menuName) {
+    document.getElementById(menuName).style.display = "none";
+}
+
+function openMenubar(barname) {
+    var menubarsTMP = document.querySelectorAll(`[id^="menubar_"]`);
+    menubarsTMP.forEach(menubarTMP => {
+        menubarTMP.style.display = "none";
+    });
+
+    document.getElementById(barname).style.display = "block";
+}
 
 const cmenu = document.getElementById("btmnav");
 const btnmenu = document.getElementById("hidbtn");
@@ -115,15 +135,15 @@ if (showAxis == "on") {
 
 if (isPlainShadingOn == "true") {
     //sets both white for plain
-    const hemi = new THREE.HemisphereLight(Number(hcolconfig), Number(hcolconfig), 10);
+    hemi = new THREE.HemisphereLight(Number(hcolconfig), Number(hcolconfig), 10);
     scene.add(hemi)
 
     //*extra*//
     const dire = new THREE.DirectionalLight(0xffffff, 10);
     scene.add(dire)
 } else {
-    //"light color" //"shadow color"
-    const hemi2 = new THREE.HemisphereLight(Number(hcolconfig), 0x000000, 1.35);
+    //"light color" // "shadow color"
+    hemi2 = new THREE.HemisphereLight(Number(hcolconfig), 0x000000, 1.35);
     hemi2.position.set(10, 0, 10) //positions it away
     scene.add(hemi2)
 }
@@ -318,8 +338,17 @@ async function logKey(e) {
     if (e.code == "KeyM")
         await animations.happy_talk();
 
-    if (e.code == "KeyZ")
+    if (e.code == "KeyZ") {
         openMenu();
+    }
+
+    if (e.code == "KeyX") {
+        openMenubar("menubar_background")
+    }
+    
+    if (e.code == "KeyC") {
+        openMenubar("menubar_light")
+    }
 }
 
 const audioContext = new AudioContext();
@@ -364,3 +393,21 @@ setInterval(async () => {
         }
     }
 }, 32);
+
+function setlightmode(mode) {
+    if (mode == "night") {
+        if (hemi) {
+            hemi.color = new THREE.Color( 0xbbbbff );
+            hemi.groundColor = new THREE.Color( 0xbbbbff );
+        } else {
+            hemi2.color = new THREE.Color( 0xbbbbff );
+        }
+    } else if (mode == "lit") {
+        if (hemi) {
+            hemi.color = new THREE.Color( 0xffffff );
+            hemi.groundColor = new THREE.Color( 0xffffff );
+        } else {
+            hemi2.color = new THREE.Color( 0xffffff );
+        }
+    }
+}
