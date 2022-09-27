@@ -1,28 +1,8 @@
-body {
-    margin: 0;
-    background-color: #00FF00;
-    overflow: hidden;
+body {margin: 0;background-color: #00FF00;overflow: hidden;background-repeat: no-repeat;background-attachment: fixed;background-size: cover;}
 
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-}
-
-::placeholder {
-    color: #AAA;
-    opacity: 1;
-    /* Firefox */
-}
-
-:-ms-input-placeholder {
-    /* Internet Explorer 10-11 */
-    color: #AAA;
-}
-
-::-ms-input-placeholder {
-    /* Microsoft Edge */
-    color: #AAA;
-}
+::placeholder {color: #AAA;opacity: 1;}
+:-ms-input-placeholder {color: #AAA;}
+::-ms-input-placeholder {color: #AAA;}
 
 .btmnav {
     font-family: sans-serif;
